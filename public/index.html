@@ -1,0 +1,104 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>TripList</title>
+     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body ng-app="TripListApp" ng-controller="mainController"></body>
+
+  <div class="container-fluid">
+  				<div class="row" id="top-Head">
+  					<div class="col-md-12">
+  						<div class="page-header">
+  						  <h1><span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>TripList <small>Your personal itinerary buddy!</small>
+  							</h1>
+  						</div>
+  					</div>
+  				</div>
+          <div class="row" >
+        
+          <div class="col-md-6 source-box">
+            <h2>  <span class="glyphicon glyphicon-bed" aria-hidden="true"></span> Source</h2>
+            <h4> Where' you at?</h4>
+          <div class="radio radio-info">
+ 
+            <div ng-repeat="source in sources">
+              <input type="radio" style="margin-left:0px" value="{{source}}" ng-model = "itinerary.selectedSource"  name="radioSource" id="{{source}}_mySource"/>
+              <label for="{{source}}_mySource">{{source}}</label>
+            </div>
+ 
+            
+ 
+          </div>
+          </div>
+
+          
+          <div class="col-md-6 destination-box">
+          <h2> <span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Destination</h2>
+          <h4> Where' you wanna go?</h4>
+          <div class="radio radio-info">
+
+            <div ng-repeat="destination in destinations">
+              <input type="radio" style="margin-left:0px" value="{{destination}}" ng-model="itinerary.selectedDestination" name="radioDestination" id="{{destination}}_myDestination" />
+              <label for="{{destination}}_myDestination">{{destination}}</label>
+            </div>
+          </div>
+          <button type="button" ng-disabled="itinerary.selectedDestination=='' || itinerary.selectedSource==''" class="btn btn-default btn-block" ng-click="checkValidTrip()" style="
+    margin-top: 10%;
+"> Let's Trip
+</button>
+          </div>
+          
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+            <br>
+            <br>
+<h1>
+             <p>My TripList:</p></h1>
+<table class="table table-bordered table-hover" ng-if="itineraryLog.length!=0">
+          <thead ng-if="itineraryLog.length!=0">
+            <tr>
+              <th>
+                Source
+              </th>
+              <th>
+                Destination
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="itinerary in itineraryLog">
+              <td>
+                {{itinerary.source}}
+              </td>
+              <td>
+                {{itinerary.destination}}
+              </td>
+              
+            </tr>
+      
+          </tbody>
+        </table>
+
+
+
+
+            </div>
+          </div>
+
+        
+
+
+
+        </div>
+  </div>
+</body>
+<script src="js/lib/angular.js"></script>
+<script src="js/index.js"></script>
+ <script src="js/mainController.js"></script>
+  			

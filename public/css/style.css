@@ -1,0 +1,24 @@
+#top-Head
+{
+	background:linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+
+.radiobutton 
+{
+	margin-left=0px;
+}
+
+.source-box{
+
+	background: gray;
+	height : calc(100% - 400px);
+	border-radius: 5px;
+	
+}
+.destination-box{
+
+	background: #DCDCDC;
+	border-radius: 5px;
+	height : calc(100% - 400px);
+}
